@@ -1,3 +1,16 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /about
+Disallow: /login
+Disallow: /register
+Disallow: /account
+Disallow: /cart
+Disallow: /update
+Disallow: /create
+Disallow: /myQuinielas
+Disallow: /buy
+Disallow: /byId
+Disallow: /results
+Disallow: /winners
+Allow: /
+
+Sitemap: https://www.quinielasligamx.com/sitemap.xml

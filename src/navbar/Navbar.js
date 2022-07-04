@@ -167,7 +167,7 @@ const Navbar = () => {
                             component="div"
                             style={{fontFamily: 'Cinzel, serif'}}
                         >
-                            Quinielaton
+                            Quinielas Liga Mx
                         </Typography>
                     </Link>
                     <Box sx={{ flexGrow: 1 }} />

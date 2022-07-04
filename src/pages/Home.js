@@ -11,6 +11,7 @@ import {db} from '../config-firebase/firebase'
 import {getQuinielas, selectQuinielas, getWinners, selectWinners} from "../redux/quinielas/quinielasSlice";
 import QuinielaComp from "../components/quinielas/QuinielaComp";
 import Winners from "../components/quinielas/Winners";
+import Spinner from "../components/spinner/Spinner";
 import Grid from "@mui/material/Grid";
 import {useDispatch, useSelector} from "react-redux";
 import {selectUser} from "../redux/user/userSlice";
@@ -275,7 +276,7 @@ function Home() {
         );
     }else {
         return (
-            <p>loading...</p>
+            <Spinner/>
         )
     }
 
