@@ -177,6 +177,41 @@ function Register() {
                             </form>
                         </Item>
                     </Grid>
+
+                    <Grid item sm={11} lg={7} xs={11} style={{marginBottom: 20}}>
+                        <Item elevation={4}>
+                            <img src="https://chicagocarhelp.s3.us-east-2.amazonaws.com/192sArtboard+1.png" alt="logo" style={{width: 45, height: "auto"}}/>
+                            <Typography style={{color: 'black', fontSize:'14px'}}>
+                                Copyright © 2018-2022 Quinielasligamx. All rights reserved.
+                            </Typography>
+                            {/*<Grid container direction="row" justify="center" alignItems="center">*/}
+                            {/*    <Grid item xs={4} sm={4} lg={4}>*/}
+                            {/*        <Typography variant="subtitle1" gutterBottom>*/}
+                            {/*            <Link to='/privacy' style={{color: 'blue', textDecoration: 'none', fontSize:'14px'}}>*/}
+                            {/*                Privacy*/}
+                            {/*            </Link>*/}
+                            {/*        </Typography>*/}
+                            {/*    </Grid>*/}
+
+                            {/*    <Grid item xs={4} sm={4} lg={4}>*/}
+                            {/*        <Typography variant="subtitle1" gutterBottom>*/}
+                            {/*            <Link to='/terms' style={{color: 'blue', textDecoration: 'none', fontSize:'14px'}}>*/}
+                            {/*                Terms*/}
+                            {/*            </Link>*/}
+                            {/*        </Typography>*/}
+                            {/*    </Grid>*/}
+
+                            {/*    <Grid item xs={4} sm={4} lg={4}>*/}
+                            {/*        <Typography variant="subtitle1" gutterBottom>*/}
+                            {/*            <Link to='/about' style={{color: 'blue', textDecoration: 'none', fontSize:'14px'}}>*/}
+                            {/*                About*/}
+                            {/*            </Link>*/}
+                            {/*        </Typography>*/}
+                            {/*    </Grid>*/}
+                            {/*</Grid>*/}
+
+                        </Item>
+                    </Grid>
                 </Grid>
             </Box>
         </Fragment>

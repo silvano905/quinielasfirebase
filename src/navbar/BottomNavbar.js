@@ -50,30 +50,30 @@ function BottomNavbar() {
                 <Toolbar style={{background: "ghostwhite"}}>
                     <IconButton color="inherit" aria-label="open drawer">
                         <Link to='/' style={{color: 'blue', textDecoration: 'none', marginLeft: 20}}>
-                            <HomeIcon />
+                            <HomeIcon fontSize='large'/>
                         </Link>
                     </IconButton>
                     <IconButton color="inherit" aria-label="open drawer">
                         <Link to='/results' style={{color: 'blue', textDecoration: 'none', marginLeft: 20}}>
-                            <EmojiEventsIcon />
+                            <EmojiEventsIcon fontSize='large'/>
                         </Link>
                     </IconButton>
                     <Link to='/buy' style={{color: 'blue', textDecoration: 'none', marginLeft: 20}}>
                         <StyledFab aria-label="add">
-                            <AddIcon />
+                            <AddIcon fontSize='large'/>
                         </StyledFab>
                     </Link>
 
                     <Box sx={{ flexGrow: 1 }} />
                     <IconButton color="inherit">
                         <Link to='/cart' style={{color: 'blue', textDecoration: 'none', marginRight: 20}}>
-                            <ShoppingCartIcon />
+                            <ShoppingCartIcon fontSize='large'/>
                         </Link>
                     </IconButton>
 
                     <IconButton color="inherit">
                         <Link to='/myQuinielas' style={{color: 'blue', textDecoration: 'none', marginRight: 20}}>
-                            <AccountBoxIcon />
+                            <AccountBoxIcon fontSize='large'/>
                         </Link>
                     </IconButton>
                     {/*<IconButton color="inherit">*/}
