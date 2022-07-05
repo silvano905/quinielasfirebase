@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, Fragment, useEffect} from 'react';
 import {auth, db} from '../config-firebase/firebase'
 import { signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth'
 import {Navigate} from "react-router-dom";
@@ -7,6 +7,7 @@ import {login, selectUser, getUserData} from "../redux/user/userSlice";
 import {Link} from "react-router-dom";
 import {doc, onSnapshot, getDoc} from "firebase/firestore";
 import {setAlert, removeAlert} from "../redux/alerts/alertsSlice";
+import ReactGA from "react-ga4";
 
 // material ui imports for styling
 import FormControl from "@mui/material/FormControl";
@@ -36,7 +37,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function Login() {
     const user = useSelector(selectUser)
-
+    useEffect(() => {
+        ReactGA.initialize('G-9ZG76GPGQF')
+    }, []);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 

@@ -1,4 +1,4 @@
-import React, {useState, Fragment} from 'react';
+import React, {useState, Fragment, useEffect} from 'react';
 import {auth, db} from '../config-firebase/firebase'
 import { createUserWithEmailAndPassword, updateProfile,  } from 'firebase/auth'
 import {addDoc, collection, onSnapshot, orderBy, query, doc, setDoc, serverTimestamp} from "firebase/firestore";
@@ -17,6 +17,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import TextField from "@mui/material/TextField";
+import ReactGA from "react-ga4";
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -30,6 +31,9 @@ const Item = styled(Paper)(({ theme }) => ({
 function Register() {
     const user = useSelector(selectUser)
 
+    useEffect(() => {
+        ReactGA.initialize('G-9ZG76GPGQF')
+    }, []);
     const [formData, setFormData] = useState({
         name: '',
         email: '',

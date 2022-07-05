@@ -20,6 +20,7 @@ import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import {collection, getDocs, orderBy, query, where} from "firebase/firestore";
 import {db} from "../../config-firebase/firebase";
+import ReactGA from "react-ga4";
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -37,6 +38,7 @@ function BuyQuinielas() {
 
     const dispatch = useDispatch()
     useEffect(() => {
+        ReactGA.initialize('G-9ZG76GPGQF')
         if(user){
             let p = collection(db, 'quinielas')
             let order = query(p, orderBy('timestamp', 'desc'),
