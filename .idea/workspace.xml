@@ -12,6 +12,7 @@
       <change beforePath="$PROJECT_DIR$/../quiniela/.idea/quiniela.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../quiniela/.idea/quiniela.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../quiniela/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../quiniela/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -49,7 +51,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-redux-firebase-hub" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="node" />
@@ -58,10 +61,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src" />
       <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\public" />
       <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src\components" />
       <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src\navbar" />
-      <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src\redux" />
@@ -91,7 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1655913566106</updated>
       <workItem from="1655913568190" duration="79344000" />
-      <workItem from="1656449047514" duration="53844000" />
+      <workItem from="1656449047514" duration="58095000" />
     </task>
     <servers />
   </component>
