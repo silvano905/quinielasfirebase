@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../consejos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../firebase-twerkzity" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../react-redux-firebase-hub" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../twerk2021" vcs="Git" />
+  </component>
+</project>

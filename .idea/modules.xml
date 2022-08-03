@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../consejos/.idea/consejos.iml" filepath="$PROJECT_DIR$/../consejos/.idea/consejos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../firebase-twerkzity/.idea/firebase-twerkzity.iml" filepath="$PROJECT_DIR$/../firebase-twerkzity/.idea/firebase-twerkzity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/quinielas-firebase.iml" filepath="$PROJECT_DIR$/.idea/quinielas-firebase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../react-redux-firebase-hub/.idea/react-redux-firebase-hub.iml" filepath="$PROJECT_DIR$/../react-redux-firebase-hub/.idea/react-redux-firebase-hub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../twerk2021/.idea/twerk2021.iml" filepath="$PROJECT_DIR$/../twerk2021/.idea/twerk2021.iml" />
+    </modules>
+  </component>
+</project>

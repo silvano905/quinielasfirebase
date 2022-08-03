@@ -26,7 +26,7 @@ import MenuItem from "@mui/material/MenuItem";
 import CardMedia from '@mui/material/CardMedia';
 import Select from "@mui/material/Select";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import Chip from "@mui/material/Chip";
 import FaceIcon from "@mui/icons-material/Face";
 import Divider from "@mui/material/Divider";
@@ -37,6 +37,7 @@ import {selectUser, selectUserPhone} from "../redux/user/userSlice";
 import {collection, getDocs, orderBy, query, where} from "firebase/firestore";
 import {db} from "../config-firebase/firebase";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import ReactGA from "react-ga4";
 
 //end material ui
 
@@ -102,7 +103,11 @@ const Results = () => {
     const [showForm, setShowForm] = useState(false);
     const[jornadaFiveDigitId, setJornadaFiveDigitId] = useState(currentJornada.id)
 
+    let location = useLocation()
+
     useEffect(() => {
+        ReactGA.initialize('G-9ZG76GPGQF')
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
         if(user){
             let p = collection(db, 'quinielas')
             let order = query(p, orderBy('timestamp', 'desc'),

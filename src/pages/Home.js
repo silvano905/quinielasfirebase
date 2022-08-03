@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 import {
     collection, addDoc,
     query, orderBy, serverTimestamp, limit,
@@ -55,8 +56,11 @@ function Home() {
     const showMoreItems = () =>{
         setVisible(prevState => prevState + 1)
     }
+    let location = useLocation()
 
     useEffect(() => {
+        ReactGA.initialize('G-9ZG76GPGQF')
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
         //get current jornada
         let p = collection(db, 'jornadas')
         let order = query(p, orderBy('timestamp', 'desc'), limit(1), where("currentJornada", "==", true))

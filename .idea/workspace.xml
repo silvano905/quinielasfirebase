@@ -8,11 +8,13 @@
       <change beforePath="$PROJECT_DIR$/../consejos/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../consejos/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../consejos/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../consejos/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../consejos/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../consejos/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../quiniela/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../quiniela/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../quiniela/.idea/quiniela.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../quiniela/.idea/quiniela.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../quiniela/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../quiniela/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../twerk2021/client/src/navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../twerk2021/client/src/navbar/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../twerk2021/client/src/pages/home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../twerk2021/client/src/pages/home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../twerk2021/client/src/pages/posts/createPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/../twerk2021/client/src/pages/posts/createPost.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../twerk2021/controllers/postsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/../twerk2021/controllers/postsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../twerk2021/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../twerk2021/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../twerk2021/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../twerk2021/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,13 +24,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../firebase-twerkzity" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -51,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-redux-firebase-hub" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -61,10 +63,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src" />
-      <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\public" />
-      <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src\components" />
-      <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src\navbar" />
+      <recent name="C:\Users\alexa\WebstormProjects\firebase-twerkzity\src\pages" />
+      <recent name="C:\Users\alexa\WebstormProjects\firebase-twerkzity\src\components" />
+      <recent name="C:\Users\alexa\WebstormProjects\firebase-twerkzity\public" />
+      <recent name="C:\Users\alexa\WebstormProjects\firebase-twerkzity\src" />
+      <recent name="C:\Users\alexa\WebstormProjects\new-twerkzity\routes" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src\redux" />
@@ -94,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1655913566106</updated>
       <workItem from="1655913568190" duration="79344000" />
-      <workItem from="1656449047514" duration="58095000" />
+      <workItem from="1656449047514" duration="153174000" />
     </task>
     <servers />
   </component>
