@@ -178,7 +178,7 @@ const UserQuinielas = () => {
                                             aria-controls="panel1a-content"
                                             id="panel1a-header"
                                         >
-                                            <Typography variant="h6" gutterBottom>Cantidad Ganada: ${user&&user.userData.balance} {user&&user.userData.country==='México'?<span>Pesos</span>:<span>Dólares</span>}
+                                            <Typography variant="h6" gutterBottom>Cantidad Ganada: ${user.userData?user.userData.balance:0} {user.userData&&user.userData.country==='México'?<span>Pesos</span>:<span>Dólares</span>}
                                             </Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
@@ -199,14 +199,14 @@ const UserQuinielas = () => {
                                             aria-controls="panel1a-content"
                                             id="panel1a-header"
                                         >
-                                            <Typography variant="h6" gutterBottom>Quinielas gratis: {user.userData.freeQuantity}</Typography>
+                                            <Typography variant="h6" gutterBottom>Quinielas gratis: {user.userData?user.userData.freeQuantity:0}</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
                                                 Puedes recibir 5 quinielas gratis si invitas a un amigo a jugar y comprar un minimo de 2 quinielas.
                                             </Typography>
                                             <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start", marginTop: 5}}>
-                                                Al comprar las quinielas tu amigo tiene que ingresar tu cupon de usuario que es el: <span style={{color: "#ffba08"}}>{user.userData.userCouponCode}</span>
+                                                Al comprar las quinielas tu amigo tiene que ingresar tu cupon de usuario que es el: <span style={{color: "#ffba08"}}>{user.userData&&user.userData.userCouponCode}</span>
                                             </Typography>
                                         </AccordionDetails>
                                     </Accordion>
@@ -219,14 +219,14 @@ const UserQuinielas = () => {
                                             aria-controls="panel1a-content"
                                             id="panel1a-header"
                                         >
-                                            <Typography variant="h6" gutterBottom>Amigos referidos: {user.userData.totalReferredFriends}/5</Typography>
+                                            <Typography variant="h6" gutterBottom>Amigos referidos: {user.userData?user.userData.totalReferredFriends:0}/5</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
                                                 Puedes referir un limite de 5 amigos.
                                             </Typography>
                                             <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start", marginTop: 5}}>
-                                                Cupon de usuario: <span style={{color: "#ffba08"}}>{user.userData.userCouponCode}</span>
+                                                Cupon de usuario: <span style={{color: "#ffba08"}}>{user.userData&&user.userData.userCouponCode}</span>
                                             </Typography>
                                         </AccordionDetails>
                                     </Accordion>

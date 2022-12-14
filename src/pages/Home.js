@@ -70,7 +70,7 @@ function Home() {
         const querySnapshot = getDocs(order).then(x=>{
             let fiveDigitIDJornada
             x.forEach((doc) => {
-                fiveDigitIDJornada=doc.data().id
+                fiveDigitIDJornada=doc.data().fiveDigitId
                 dispatch(getJornada({data: doc.data(), id: doc.id}))
             });
 

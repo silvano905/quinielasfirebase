@@ -11,6 +11,7 @@ import CreateJornada from "./pages/admin/CreateJornada";
 import Results from "./pages/Results";
 import UpdateGamesScore from "./pages/admin/UpdateGamesScore";
 import BottomNavbar from "./navbar/BottomNavbar";
+import HomeAdmin from "./pages/admin/Home";
 import UserQuinielas from "./pages/quinielas/UsersQuinielas";
 import QuinielasById from "./pages/quinielas/QuinielasById";
 import {useSelector} from "react-redux";
@@ -40,6 +41,7 @@ function App() {
                 <Route path="account" element={<Account />} />
                 {/*<Route path='/buy' element={<BuyQuinielas />} />*/}
                 {/*<Route path='/myQuinielas' element={<UserQuinielas />} />*/}
+                <Route path='/admin' element={<HomeAdmin />} />
                 <Route path='/update' element={<UpdateGamesScore />} />
                 <Route path='/create' element={<CreateJornada />} />
                 <Route path='/cart' element={<Cart />} />

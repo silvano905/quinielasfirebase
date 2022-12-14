@@ -91,7 +91,7 @@ const Navbar = () => {
             onClose={handleMobileMenuClose}
         >
 
-            {user?
+            {user.user?
                 <>
                     <MenuItem onClick={handleMenuClose}>
                         <Typography variant="h6" gutterBottom>
@@ -100,7 +100,7 @@ const Navbar = () => {
                             </Link>
                         </Typography>
                     </MenuItem>
-                    {user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'&&
+                    {user.user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'&&
                         <MenuItem onClick={handleMenuClose}>
                             <Typography variant="h6" gutterBottom>
                                 <Link to='/update' style={{color: 'blue', textDecoration: 'none'}}>
@@ -109,7 +109,7 @@ const Navbar = () => {
                             </Typography>
                         </MenuItem>
                     }
-                    {user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'&&
+                    {user.user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'&&
                         <MenuItem onClick={handleMenuClose}>
                             <Typography variant="h6" gutterBottom>
                                 <Link to='/create' style={{color: 'blue', textDecoration: 'none'}}>
@@ -141,7 +141,7 @@ const Navbar = () => {
             }
 
 
-            {user?
+            {user.user?
                 <MenuItem onClick={handleMenuClose}>
                     <Button type="submit" variant="contained" color="primary" onClick={logoutOfApp}>logout</Button>
                 </MenuItem>

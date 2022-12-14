@@ -108,7 +108,7 @@ const Results = () => {
     useEffect(() => {
         ReactGA.initialize('G-9ZG76GPGQF')
         ReactGA.send({ hitType: "pageview", page: location.pathname })
-        if(user){
+        if(user.user){
             let p = collection(db, 'quinielas')
             let order = query(p, orderBy('timestamp', 'desc'),
                 where("userId", "==", user.user.uid),
@@ -275,7 +275,7 @@ const Results = () => {
                             </Typography>
                         </div>
 
-                        {user?
+                        {user&&user.user?
                             <div style={{marginTop: 12}}>
                                 <Typography component="div" variant="h5" color="text.primary" style={{color: "blue"}}>
                                     <PhoneIcon style={{margin:'0px 10px -4px auto'}}/>{myPhoneNumber}
@@ -290,7 +290,7 @@ const Results = () => {
                                 <Button style={{margin: '10px auto 25px auto'}} variant="contained" color="warning" onClick={() => setShowForm(!showForm)}>Cancelar</Button>
                             </Grid>
                             :
-                            user?
+                            user.user?
                                 <Grid item sm={12} lg={12} xs={12}>
                                     <Button variant="contained" color="primary"
                                             onClick={() => setShowForm(!showForm)}

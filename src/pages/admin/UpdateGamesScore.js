@@ -34,7 +34,9 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    paddingBottom: 8
+    padding: 8,
+    marginTop: 11,
+    marginBottom:10
 }));
 
 const StyledText = styled(Typography)(({ theme }) => ({
@@ -75,14 +77,14 @@ const UpdateGamesScore = () => {
         let p = collection(db, 'quinielas')
         let order = query(p, orderBy('timestamp', 'desc'),
             where("paid", "==", true),
-            where("fiveDigitId", "==", jornada.id) )
+            where("fiveDigitId", "==", jornada.fiveDigitId) )
         const querySnapshot = getDocs(order).then(x=>{
             setAllQuinielas(x.docs.map(doc => ({
                 data: doc.data(), id: doc.id
             })))
         })
 
-        //get next jornada if their is one
+        //get current jornada
         let nextJornadaRef = collection(db, 'jornadas')
         let nextJornadaOrder = query(nextJornadaRef, orderBy('timestamp', 'desc'), limit(1), where("currentJornada", "==", true))
         const querySnapshotNextJornada = getDocs(nextJornadaOrder).then(x=>{
@@ -257,13 +259,13 @@ const UpdateGamesScore = () => {
         e.preventDefault()
         //this jornada will no longer be available on the home page
         //make sure you make a new jornada
-        if(user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'){
+        if(user.user.uid==='RO8bagM0g0SSnoLcdKWfmB91aM52'){
             setCurrent(!current)
             setDisableButton(true)
             //players are no longer going to be able to buy from the current jornada/only from the next jornada
             let jornadaRef = doc(db, 'jornadas', jornadaId);
             updateDoc(jornadaRef,{
-                currentJornada: current
+                currentJornada: !current
             }).then().catch(e=>console.log(e))
             setDisableButton(false)
         }
@@ -271,13 +273,13 @@ const UpdateGamesScore = () => {
 
     const closeJornadaToBuy = (e) => {
         e.preventDefault()
-        if(user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'){
+        if(user.user.uid==='RO8bagM0g0SSnoLcdKWfmB91aM52'){
             setDisableButton(true)
             setOpen(!open)
             //players are no longer going to be able to buy from the current jornada/only from the next jornada
             let jornadaRef = doc(db, 'jornadas', jornadaId);
             updateDoc(jornadaRef,{
-                openToBuy: open
+                openToBuy: !open
             }).then().catch(e=>console.log(e))
             setDisableButton(false)
         }
@@ -285,7 +287,7 @@ const UpdateGamesScore = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if(user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'){
+        if(user.user.uid==='RO8bagM0g0SSnoLcdKWfmB91aM52'){
             dispatch(setAlert('Quinielas updated', 'success'))
             setDisableButton(true)
             for (let i = 0; i < allQuinielas.length; i++) {
@@ -353,7 +355,7 @@ const UpdateGamesScore = () => {
             let p = collection(db, 'quinielas')
             let order = query(p, orderBy('timestamp', 'desc'),
                 where("paid", "==", true),
-                where("fiveDigitId", "==", jornada.id) )
+                where("fiveDigitId", "==", jornada.fiveDigitId) )
             const querySnapshot = await getDocs(order)
 
             querySnapshot.forEach((doc)=> {
@@ -428,7 +430,7 @@ const UpdateGamesScore = () => {
                         </FormControl>
                     </Grid>
                     <Grid item sm={11} lg={10} xs={11}>
-                        <div style={{display: "flex", textAlign: "center", margin: "auto"}}>
+                        <div style={{margin: '-18px 0px 15px 0px',display: "flex", textAlign: "center", alignItems: "center", justifyContent: "center"}}>
                             <Typography variant="h6" component="div" gutterBottom>
                                 game canceled?
                             </Typography>
@@ -501,7 +503,7 @@ const UpdateGamesScore = () => {
                         </FormControl>
                     </Grid>
                     <Grid item sm={11} lg={10} xs={11}>
-                        <div style={{display: "flex", textAlign: "center", margin: "auto"}}>
+                        <div style={{margin: '-18px 0px 15px 0px',display: "flex", textAlign: "center", alignItems: "center", justifyContent: "center"}}>
                             <Typography variant="h6" component="div" gutterBottom>
                                 game canceled?
                             </Typography>
@@ -522,47 +524,44 @@ const UpdateGamesScore = () => {
 
     return (
         <Fragment>
-            <Box>
-                <Grid container spacing={1} justifyContent="center">
-                    <Grid item sm={11} lg={7} xs={11}>
-                        <form onSubmit={e => onSubmit(e)} style={{marginTop: 10}}>
-                            <Grid container spacing={1} justifyContent="center">
-                                <Grid item sm={10} lg={11} xs={11}>
-                                    <Typography variant="h6" component="div" gutterBottom>
-                                        Users will no longer be able to buy quinielas if you close it
-                                    </Typography>
-                                    <Button style={{margin: '5px auto 5px auto', color: "black"}} onClick={closeJornadaToBuy}
-                                            variant="outlined">
-                                        {open?<span>Close Jornada</span>:<span>Open Jornada</span>}
-                                    </Button>
-                                </Grid>
+            <Item elevation={4}>
+                <Typography variant="h5" gutterBottom style={{color: 'black', marginTop: 10}}>
+                    Update Game Score
+                </Typography>
+                <form onSubmit={e => onSubmit(e)} style={{marginTop: 10}}>
+                    <Grid container spacing={1} justifyContent="center">
+                        <Grid item sm={10} lg={11} xs={11}>
+                            <Typography variant="h6" component="div" gutterBottom>
+                                Users will no longer be able to buy quinielas if you close it
+                            </Typography>
+                            <Button style={{margin: '5px auto 5px auto', color: "black"}} onClick={closeJornadaToBuy}
+                                    variant="outlined">
+                                {open?<span>Close Jornada</span>:<span>Open Jornada</span>}
+                            </Button>
+                        </Grid>
 
-                                <Grid item sm={10} lg={11} xs={11}>
-                                    <Typography variant="h6" component="div" gutterBottom>
-                                        Click to make the next quiniela as the main to display. This quiniela will no longer be display on the home page.
-                                    </Typography>
-                                    <Button style={{margin: '5px auto 5px auto', color: "black", textAlign: "center"}} onClick={changeCurrentJornada}
-                                            variant="outlined">
-                                        {current?<span>make inactive</span>:<span>activate</span>}
-                                    </Button>
-                                </Grid>
+                        <Grid item sm={10} lg={11} xs={11}>
+                            <Typography variant="h6" component="div" gutterBottom>
+                                Click to make the next quiniela as the main to display. This quiniela will no longer be display on the home page.
+                            </Typography>
+                            <Button style={{margin: '5px auto 20px auto', color: "black", textAlign: "center"}} onClick={changeCurrentJornada}
+                                    variant="outlined">
+                                {current?<span>make inactive</span>:<span>activate</span>}
+                            </Button>
+                        </Grid>
 
-                                <Card sx={{ minWidth: 275 }}>
-                                    <CardContent>
-                                        <Grid  container spacing={1} justifyContent="center">
-                                            {list}
-                                        </Grid>
-                                        <Grid  container spacing={1} justifyContent="center">
-                                            {listExtra}
-                                        </Grid>
-                                    </CardContent>
-                                </Card>
-                                <Button style={{margin: 15}} type="submit" variant="contained" color="primary">submit</Button>
-                            </Grid>
-                        </form>
                     </Grid>
-                </Grid>
-            </Box>
+
+                    <Grid  container spacing={1} justifyContent="center">
+                        {list}
+                    </Grid>
+                    <Grid  container spacing={1} justifyContent="center">
+                        {listExtra}
+                    </Grid>
+                    <Button style={{margin: 15}} type="submit" variant="contained" color="primary">submit</Button>
+
+                </form>
+            </Item>
         </Fragment>
     )
 }
