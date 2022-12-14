@@ -29,10 +29,11 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import {collection, getDocs, limit, orderBy, query, where} from "firebase/firestore";
+import {collection, getDocs, limit, orderBy, query, where, onSnapshot} from "firebase/firestore";
 import {db} from "../../config-firebase/firebase";
 import {getJornada} from "../../redux/jornadas/jornadasSlice";
 import {selectUser} from "../../redux/user/userSlice";
+import Spinner from "../../components/spinner/Spinner";
 
 
 //end material ui
@@ -88,16 +89,29 @@ const UserQuinielas = () => {
     const nextJornada = useSelector(selectNextJornada)
     const currentJornadaId = useSelector(selectJornadaId)
     const nextJornadaId = useSelector(selectNextJornadaId)
-    const[jornadaFiveDigitId, setJornadaFiveDigitId] = useState(currentJornada.id)
+    const[jornadaFiveDigitId, setJornadaFiveDigitId] = useState(currentJornada.fiveDigitId)
 
     const user = useSelector(selectUser)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        if(user){
+        if(user.user){
+            // let p = collection(db, 'quinielas')
+            // let order = query(p, orderBy('timestamp', 'desc'),
+            //     where("userId", "==", user.user.uid),
+            //     where("paid", "==", true),
+            //     where("fiveDigitId", "==", jornadaFiveDigitId))
+            // onSnapshot(order, (snapshot) => {
+            //     dispatch(
+            //         getMyQuinielas(
+            //             snapshot.docs.map(doc => (doc.data()))
+            //         )
+            //     )
+            // })
+
             let p = collection(db, 'quinielas')
             let order = query(p, orderBy('timestamp', 'desc'),
-                where("userId", "==", user.uid),
+                where("userId", "==", user.user.uid),
                 where("paid", "==", true),
                 where("fiveDigitId", "==", jornadaFiveDigitId))
             const querySnapshot = getDocs(order).then(x=>{
@@ -121,47 +135,113 @@ const UserQuinielas = () => {
         })
     }
 
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-            <Grid  container spacing={1} justifyContent="center">
-                <Grid item sm={11} lg={10} xs={11}>
-                    <Item elevation={6}>
-                        <Grid container spacing={1} justifyContent="center">
-                            <Grid item sm={10} lg={10} xs={10}>
-                                <Typography variant="h5" component="div" gutterBottom style={{color: '#ffc300', fontFamily: 'Cinzel, serif'}}>
-                                    Mis Quinielas
-                                </Typography>
-                                <Divider>
-                                    <SportsSoccerIcon/>
-                                </Divider>
-                                {/*<Typography variant="h5" component="div" gutterBottom style={{color: 'blue'}}>*/}
-                                {/*    Jornada {currentJornada.jornadaNumber}*/}
-                                {/*</Typography>*/}
-                                <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                                    <Button variant={jornadaFiveDigitId===currentJornada.id?'contained':'outlined'} onClick={()=>setJornadaFiveDigitId(currentJornada.id)}>Jornada {currentJornada.jornadaNumber}</Button>
-                                    {nextJornada&&
-                                        <Button variant={jornadaFiveDigitId===nextJornada.id?'contained':'outlined'} onClick={()=>setJornadaFiveDigitId(nextJornada.id)}>Jornada {nextJornada.jornadaNumber}</Button>
+        return (
+            <Box sx={{ flexGrow: 1 }}>
+                <Grid  container spacing={1} justifyContent="center">
+                    <Grid item sm={11} lg={10} xs={11}>
+                        <Item elevation={6}>
+                            <Grid container spacing={1} justifyContent="center">
+                                <Grid item sm={10} lg={10} xs={10}>
+                                    <Typography variant="h5" component="div" gutterBottom style={{color: '#ffc300', fontFamily: 'Cinzel, serif'}}>
+                                        Mis Quinielas
+                                    </Typography>
+                                    <Divider>
+                                        <SportsSoccerIcon/>
+                                    </Divider>
+                                    {/*<Typography variant="h5" component="div" gutterBottom style={{color: 'blue'}}>*/}
+                                    {/*    Jornada {currentJornada.jornadaNumber}*/}
+                                    {/*</Typography>*/}
+                                    <ButtonGroup variant="contained" aria-label="outlined primary button group">
+                                        <Button variant={jornadaFiveDigitId===currentJornada.id?'contained':'outlined'} onClick={()=>setJornadaFiveDigitId(currentJornada.id)}>Jornada {currentJornada.jornadaNumber}</Button>
+                                        {nextJornada&&
+                                            <Button variant={jornadaFiveDigitId===nextJornada.id?'contained':'outlined'} onClick={()=>setJornadaFiveDigitId(nextJornada.id)}>Jornada {nextJornada.jornadaNumber}</Button>
+                                        }
+                                    </ButtonGroup>
+                                </Grid>
+
+                                <Grid item sm={10} lg={10} xs={10}>
+                                    {userQuinielas?
+                                        <>
+                                            <Typography variant="h5" component="div" gutterBottom style={{color: '#004e98'}}>
+                                                {userQuinielas.length} Quinielas Compradas
+                                            </Typography>
+                                        </>
+                                        :
+                                        null
                                     }
-                                </ButtonGroup>
+                                </Grid>
+
+                                <Grid item sm={12} lg={12} xs={12}>
+                                    <Accordion style={{background:"linear-gradient(45deg, #14213d 8%, #03071e 80%)", color: 'whitesmoke'}}>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon style={{color: "white"}}/>}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Typography variant="h6" gutterBottom>Cantidad Ganada: ${user&&user.userData.balance} {user&&user.userData.country==='México'?<span>Pesos</span>:<span>Dólares</span>}
+                                            </Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
+                                                Uno de nuestros representantes lo llamará por teléfono cuando gane para pedirle su información.
+                                            </Typography>
+                                            <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start", marginTop: 5}}>
+                                                Podemos enviarle el dinero con Wester Union o podemos depositar su dinero en su cuenta bancaria si vive en los Estados Unidos.
+                                            </Typography>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                </Grid>
+
+                                <Grid item sm={12} lg={12} xs={12}>
+                                    <Accordion style={{background:"linear-gradient(45deg, #14213d 8%, #03071e 80%)", color: 'whitesmoke'}}>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon style={{color: "white"}}/>}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Typography variant="h6" gutterBottom>Quinielas gratis: {user.userData.freeQuantity}</Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
+                                                Puedes recibir 5 quinielas gratis si invitas a un amigo a jugar y comprar un minimo de 2 quinielas.
+                                            </Typography>
+                                            <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start", marginTop: 5}}>
+                                                Al comprar las quinielas tu amigo tiene que ingresar tu cupon de usuario que es el: <span style={{color: "#ffba08"}}>{user.userData.userCouponCode}</span>
+                                            </Typography>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                </Grid>
+
+                                <Grid item sm={12} lg={12} xs={12}>
+                                    <Accordion style={{background:"linear-gradient(45deg, #14213d 8%, #03071e 80%)", color: 'whitesmoke'}}>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon style={{color: "white"}}/>}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Typography variant="h6" gutterBottom>Amigos referidos: {user.userData.totalReferredFriends}/5</Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
+                                                Puedes referir un limite de 5 amigos.
+                                            </Typography>
+                                            <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start", marginTop: 5}}>
+                                                Cupon de usuario: <span style={{color: "#ffba08"}}>{user.userData.userCouponCode}</span>
+                                            </Typography>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                </Grid>
+
+
                             </Grid>
-                            <Grid item sm={10} lg={10} xs={10}>
-                                {userQuinielas?
-                                    <>
-                                        <Typography variant="h5" component="div" gutterBottom style={{color: '#004e98'}}>
-                                            {userQuinielas.length} Quinielas Compradas
-                                        </Typography>
-                                    </>
-                                    :
-                                    null
-                                }
-                            </Grid>
-                        </Grid>
-                    </Item>
+                        </Item>
+                    </Grid>
+                    {list}
                 </Grid>
-                {list}
-            </Grid>
-        </Box>
-    );
+            </Box>
+        );
+
+
 
 };
 

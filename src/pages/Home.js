@@ -9,6 +9,7 @@ import {
 import {getJornada, selectJornada, getNextJornada, selectNextJornada} from "../redux/jornadas/jornadasSlice";
 import { Waypoint } from 'react-waypoint';
 import {db} from '../config-firebase/firebase'
+import {selectPrice, getPrice} from "../redux/price/priceSlice";
 import {getQuinielas, selectQuinielas, getWinners, selectWinners} from "../redux/quinielas/quinielasSlice";
 import QuinielaComp from "../components/quinielas/QuinielaComp";
 import Winners from "../components/quinielas/Winners";
@@ -32,6 +33,7 @@ import List from '@mui/material/List';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ReactGA from "react-ga4";
@@ -49,6 +51,7 @@ const Item = styled(Paper)(({ theme }) => ({
 function Home() {
     const dispatch = useDispatch()
     const allQuinielas = useSelector(selectQuinielas)
+    const quinielaPrice = useSelector(selectPrice)
     const [filterQuinielas, setFilterQuinielas] = useState('correct');
     const currentJornada = useSelector(selectJornada)
     const winners = useSelector(selectWinners)
@@ -105,7 +108,19 @@ function Home() {
             )
         })
 
+        //get price for quinielas
+        let priceRef = collection(db, 'price')
+        let priceQuery = query(priceRef, orderBy('timestamp', 'desc'), limit(1))
+        const priceObj = getDocs(priceQuery).then(x=>{
+            x.forEach((doc) => {
+                dispatch(getPrice({data: doc.data(), id: doc.id}))
+            });
+        })
+
     }, [filterQuinielas,]);
+
+    //TODO
+    //add another useEffect with [filterQuinielas,]
 
     let quinielasList;
     if(allQuinielas){
@@ -152,20 +167,20 @@ function Home() {
                                 {/*<StyledText>*/}
                                 {/*    Premio: {!loadingJornada&&jornada?<span style={{color: '#02CC92'}}>${jornada.prize}</span>:null} dolares*/}
                                 {/*</StyledText>*/}
-                                <Accordion style={{background:"linear-gradient(45deg, #3d52d5 8%, #090c9b 80%)", color: 'whitesmoke'}}>
+                                <Accordion style={{background:"linear-gradient(45deg, #14213d 8%, #03071e 80%)", color: 'whitesmoke'}}>
                                     <AccordionSummary
                                         expandIcon={<ExpandMoreIcon style={{color: "white"}}/>}
                                         aria-controls="panel1a-content"
                                         id="panel1a-header"
                                     >
-                                        <Typography variant="h6" gutterBottom>Con 9 Puntos Ganas ${currentJornada.prize} Dolares</Typography>
+                                        <Typography variant="h6" gutterBottom>Con 9 Puntos Ganas ${quinielaPrice&&quinielaPrice.data.prizeUSD} Dólares</Typography>
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
-                                            Necesitas hacer 9 puntos en una quiniela para ganar los ${currentJornada.prize} dolares automaticamente.
+                                            Necesitas hacer 9 puntos en una quiniela para ganar los ${quinielaPrice&&quinielaPrice.data.prizeUSD} dólares automaticamente.
                                         </Typography>
                                         <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start", marginTop: 5}}>
-                                            Cada persona con 9 puntos gana ${currentJornada.prize} dolares sin importar la cantidad de ganadores.
+                                            Cada persona con 9 puntos gana ${quinielaPrice&&quinielaPrice.data.prizeUSD} dólares sin importar la cantidad de ganadores.
                                         </Typography>
                                     </AccordionDetails>
                                 </Accordion>
@@ -175,11 +190,32 @@ function Home() {
                                         aria-controls="panel1a-content"
                                         id="panel1a-header"
                                     >
-                                        <Typography variant="h6" gutterBottom>$2.00 Dolares por Quiniela</Typography>
+                                        <Typography variant="h6" gutterBottom>${quinielaPrice&&quinielaPrice.data.priceUSD} Dólares por Quiniela si vives en Estados Unidos
+                                            <Avatar alt="Remy Sharp" src="https://chicagocarhelp.s3.us-east-2.amazonaws.com/800px-Flag_of_the_United_States.svg.png" variant="rounded"  style={{margin: "auto"}}/>
+                                        </Typography>
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
-                                            Cada quiniela cuesta $2.00 Dolares
+                                            Cada quiniela cuesta ${quinielaPrice&&quinielaPrice.data.priceUSD} Dólares
+                                        </Typography>
+                                        <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start", marginTop: 5}}>
+                                            Puedes pagar con tarjeta de credito o Paypal.
+                                        </Typography>
+                                    </AccordionDetails>
+                                </Accordion>
+                                <Accordion style={{background:"linear-gradient(45deg, #16db65 8%, #058c42 80%)", color: 'whitesmoke', marginTop: 8}}>
+                                    <AccordionSummary
+                                        expandIcon={<ExpandMoreIcon  style={{color: "white"}}/>}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                    >
+                                        <Typography variant="h6" gutterBottom>${quinielaPrice&&quinielaPrice.data.priceMEX} Pesos por Quiniela si vives en México
+                                            <Avatar alt="Remy Sharp" src="https://chicagocarhelp.s3.us-east-2.amazonaws.com/Flag_of_Mexico_(bordered).svg.png" variant="rounded" style={{margin: "auto"}}/>
+                                        </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
+                                            Cada quiniela cuesta ${quinielaPrice&&quinielaPrice.data.priceMEX} Pesos
                                         </Typography>
                                         <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start", marginTop: 5}}>
                                             Puedes pagar con tarjeta de credito o Paypal.
@@ -201,7 +237,7 @@ function Home() {
                 <Grid item sm={11} lg={10} xs={11}>
                     <Item elevation={6}>
                         <Typography variant="h5" component="div" gutterBottom style={{fontFamily: 'Secular One, sans-serif', marginTop: 10}}>
-                            Formas de recibir ganacias:
+                            Formas de cobrar el dinero:
                         </Typography>
                         <Grid container spacing={1} justifyContent="center">
                             <Grid item sm={11} lg={6} xs={11}>
@@ -219,7 +255,8 @@ function Home() {
                                         </Typography>
                                         <Divider variant="middle" style={{margin: '10px 0 10px 0'}}/>
                                         <Typography variant="h6" gutterBottom style={{textAlign: "start"}}>
-                                            uno de nuestros representantes lo llamará cuando gane por teléfono para pedir tu información.
+                                            uno de nuestros representantes lo llamará para enviarle su dinero al Western Union más cercano a usted.
+                                            No importa si vives en los Estados Unidos o en México.
                                         </Typography>
                                     </AccordionDetails>
                                 </Accordion>
@@ -235,11 +272,11 @@ function Home() {
                                     </AccordionSummary>
                                     <AccordionDetails>
                                         <Typography variant="h6" gutterBottom style={{textAlign: "start"}}>
-                                            la forma más segura de recibir tu dinero
+                                            Solo las personas que viven en los Estados Unidos pueden recibir su dinero en su cuenta bancaria.
                                         </Typography>
                                         <Divider variant="middle" style={{margin: '10px 0 10px 0'}}/>
                                         <Typography variant="h6" gutterBottom style={{textAlign: "start"}}>
-                                            uno de nuestros representantes lo llamará cuando gane por teléfono para pedir tu información.
+                                            uno de nuestros representantes lo llamará por teléfono cuando gane para pedirle su información.
                                         </Typography>
                                     </AccordionDetails>
                                 </Accordion>

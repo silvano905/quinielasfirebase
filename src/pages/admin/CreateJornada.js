@@ -113,7 +113,7 @@ const CreateJornada = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         let fiveDigitNum = await Math.floor(1000 + Math.random() * 9000);
-        if(user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'){
+        if(user.user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'){
 
             list = [];
             for (const [key, value] of Object.entries(theArray)) {

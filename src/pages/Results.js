@@ -101,7 +101,7 @@ const Results = () => {
     const user = useSelector(selectUser)
     const dispatch = useDispatch()
     const [showForm, setShowForm] = useState(false);
-    const[jornadaFiveDigitId, setJornadaFiveDigitId] = useState(currentJornada.id)
+    const[jornadaFiveDigitId, setJornadaFiveDigitId] = useState(currentJornada.fiveDigitId)
 
     let location = useLocation()
 
@@ -111,7 +111,7 @@ const Results = () => {
         if(user){
             let p = collection(db, 'quinielas')
             let order = query(p, orderBy('timestamp', 'desc'),
-                where("userId", "==", user.uid),
+                where("userId", "==", user.user.uid),
                 where("paid", "==", true),
                 where("fiveDigitId", "==", jornadaFiveDigitId))
             const querySnapshot = getDocs(order).then(x=>{

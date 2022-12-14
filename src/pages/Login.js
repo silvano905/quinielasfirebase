@@ -38,7 +38,6 @@ const Item = styled(Paper)(({ theme }) => ({
 function Login() {
     const user = useSelector(selectUser)
     useEffect(() => {
-        ReactGA.initialize('G-9ZG76GPGQF')
     }, []);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -55,9 +54,7 @@ function Login() {
 
                 const docRef = doc(db, "usersData", userAuth.user.uid);
                 const docSnap = getDoc(docRef).then((x)=>{
-                    dispatch(getUserData({
-                        phone: x.data().phoneNumber
-                    }))
+                    dispatch(getUserData(x.data()))
                 })
             }).catch(error =>alert(error.message))
     }
@@ -109,7 +106,7 @@ function Login() {
         </div>
     )
 
-    if(user){
+    if(user.user){
         return <Navigate to='/'/>
     }
     return (

@@ -1,4 +1,5 @@
 import React, {Fragment, useEffect, useState, useRef} from 'react';
+import PaypalButton from "./ButtonComponent";
 import {useNavigate} from "react-router-dom"
 import { useSelector,useDispatch } from 'react-redux';
 import {selectCart} from "../../redux/cart/cartSlice";
@@ -20,61 +21,14 @@ const Item = styled(Paper)(({ theme }) => ({
     paddingBottom: 8
 }));
 
-const Paypal = () => {
+const Paypal = ({code}) => {
     const user = useSelector(selectUser)
     const myCart = useSelector(selectCart)
     const dispatch = useDispatch();
     const [error, setError] = useState(null);
     const paypalRef = useRef();
     const navigate = useNavigate()
-    //4032031573397410
-    //07/2027
-    //439
-    useEffect(() => {
-        window.paypal
-            .Buttons({
-                createOrder: (data, actions) => {
-                    return actions.order.create({
-                        purchase_units: [
-                            {
-                                description: 'quinielas',
-                                amount: {
-                                    currency_code: 'USD',
-                                    value: 7,
-                                },
-                            },
-                        ],
-                        application_context: { shipping_preference: 'NO_SHIPPING'}
-                    });
-                },
-                onApprove: async (data, actions) => {
-                    const order = await actions.order.capture();
-                    //after the payment was successful make all the quinielas in the cart paid = true
-                    for (let i = 0; i < myCart.length; i++) {
-                        let docRef = doc(db, 'quinielas', myCart[i].id)
-                        updateDoc(docRef,{
-                            paid: true
-                        }).then()
-                    }
-
-                    //TODO
-                    //add alerts and redirects
-                    dispatch(setAlert('Tu pago fue aceptado', 'success'))
-                    navigate('/myQuinielas')
-                    setTimeout(()=>{dispatch(removeAlert())}, 6000)
-                },
-                onError: err => {
-                    console.log(err.message)
-                    setError(err);
-                },
-            })
-            .render(paypalRef.current);
-    }, []);
-
-
-    if (user) {
-
-
+    if (user.user) {
         return (
 
             <Fragment>
@@ -86,9 +40,9 @@ const Paypal = () => {
                                     <div>
                                         {error && <div>Uh oh, an error occurred! {error.message}</div>}
                                         <Typography variant="h6" component="h6">
-                                            Pay securely with Paypal
+                                            Paga de forma segura con Paypal
                                         </Typography>
-                                        <div ref={paypalRef} />
+                                        <PaypalButton code={code}/>
                                     </div>
                                 </Item>
                             </Grid>

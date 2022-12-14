@@ -5,11 +5,13 @@ import userReducer from '../redux/user/userSlice';
 import jornadasReducer from '../redux/jornadas/jornadasSlice';
 import quinielasReducer from '../redux/quinielas/quinielasSlice'
 import cartReducer from '../redux/cart/cartSlice'
+import priceReducer from '../redux/price/priceSlice'
+import promotionReducer from '../redux/promotions/promotionsSlice'
 import alertsReducer from '../redux/alerts/alertsSlice'
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['user', 'jornadas', 'quinielas', 'cart', 'alerts']
+    whitelist: ['user', 'jornadas', 'quinielas', 'cart', 'alerts', 'price', 'promotions']
 };
 
 const rootReducer = combineReducers({
@@ -17,7 +19,9 @@ const rootReducer = combineReducers({
     jornadas: jornadasReducer,
     quinielas: quinielasReducer,
     cart: cartReducer,
-    alerts: alertsReducer
+    alerts: alertsReducer,
+    price: priceReducer,
+    promotions: promotionReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

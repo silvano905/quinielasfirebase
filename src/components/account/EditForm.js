@@ -2,7 +2,7 @@ import React, {Fragment, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {auth, db} from '../../config-firebase/firebase'
 import { updateProfile, updateEmail } from 'firebase/auth'
-import {getUserData} from "../../redux/user/userSlice";
+import {getUserData, updatePhoneNumber} from "../../redux/user/userSlice";
 import {
     addDoc,
     arrayUnion,
@@ -49,7 +49,7 @@ const EditForm = ({id, name, email, phone}) => {
             }).then()
             dispatch(login({
                 email: formData.email,
-                id: auth.currentUser.uid,
+                uid: auth.currentUser.uid,
                 displayName: formData.displayName,
             }))
         }
@@ -57,7 +57,7 @@ const EditForm = ({id, name, email, phone}) => {
             updateDoc(doc(db, 'usersData', id),{
                 phoneNumber: formData.phone
             }).then(()=>{
-                dispatch(getUserData({phone: formData.phone}))
+                dispatch(updatePhoneNumber({phoneNumber: formData.phone}))
             })
         }
 

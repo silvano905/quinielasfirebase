@@ -1,7 +1,7 @@
 import React, {useState, Fragment, useEffect} from 'react';
 import {auth, db} from '../config-firebase/firebase'
 import { createUserWithEmailAndPassword, updateProfile,  } from 'firebase/auth'
-import {addDoc, collection, onSnapshot, orderBy, query, doc, setDoc, serverTimestamp} from "firebase/firestore";
+import {addDoc, collection, onSnapshot, orderBy, query, doc, setDoc, serverTimestamp, getDoc} from "firebase/firestore";
 import {useDispatch, useSelector} from "react-redux";
 import {login, selectUser, getUserData} from "../redux/user/userSlice";
 import {Link, Navigate} from "react-router-dom";
@@ -17,6 +17,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import TextField from "@mui/material/TextField";
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import ReactGA from "react-ga4";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -32,12 +34,12 @@ function Register() {
     const user = useSelector(selectUser)
 
     useEffect(() => {
-        ReactGA.initialize('G-9ZG76GPGQF')
     }, []);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
+        country: ''
     });
 
     const onChange = (e) =>
@@ -50,7 +52,7 @@ function Register() {
         phone: null
     });
 
-    const { name, email, password, phone } = formData;
+    const { name, email, password, phone, country } = formData;
     const [disableButton, setDisableButton] = useState(false)
 
     const register = (e) => {
@@ -60,9 +62,19 @@ function Register() {
             .then(cred => {
                 let userDataRef = doc(db, "usersData", cred.user.uid);
                 setDoc(userDataRef,{
-                    phoneNumber: phone
+                    phoneNumber: phone,
+                    country: country,
+                    freeQuantity: 0,
+                    userCouponCode: Math.floor(1000 + Math.random() * 9000),
+                    totalReferredFriends: 0,
+                    balance: 0,
+                    referredFriendPromoUsed: false,
+                    timestamp: serverTimestamp()
                 }).then(()=>{
-                    dispatch(getUserData({phone: phone}))
+                    const docRef = doc(db, "usersData", cred.user.uid);
+                    const docSnap = getDoc(docRef).then((x)=>{
+                        dispatch(getUserData(x.data()))
+                    })
                 })
                 setDisableButton(false)
                 updateProfile(cred.user, {displayName: name}).then(()=>{
@@ -72,14 +84,14 @@ function Register() {
                         displayName: name
                     }))
                 })
-                })
-                .catch(err => {
-                    console.log(err.message)
-                })
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
     }
     const dispatch = useDispatch()
 
-    if(user){
+    if(user&&user.user){
         return <Navigate to='/'/>
     }
 
@@ -123,7 +135,7 @@ function Register() {
                                             <TextField
                                                 fullWidth
                                                 variant="outlined"
-                                                id="standard-basic"
+                                                id="standard-basic2"
                                                 label="Número de teléfono"
                                                 name="phone"
                                                 inputProps={{ maxLength: 20 }}
@@ -132,6 +144,24 @@ function Register() {
                                                 required
                                                 style={{marginTop: 10}}
                                             />
+                                        </FormControl>
+                                    </Grid>
+
+                                    <Grid item sm={11} lg={7} xs={11}>
+                                        <FormControl variant="standard" style={{width: 200}}>
+                                            <InputLabel id="demo-simple-select-label">Selecciona tu pais</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={country}
+                                                label="Pais"
+                                                name="country"
+                                                onChange={onChange}
+                                                required
+                                            >
+                                                <MenuItem value="México">México</MenuItem>
+                                                <MenuItem value="Estados Unidos">Estados Unidos</MenuItem>
+                                            </Select>
                                         </FormControl>
                                     </Grid>
 

@@ -9,9 +9,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="twerk2021" />
     <orderEntry type="module" module-name="firebase-twerkzity" />
-    <orderEntry type="module" module-name="consejos" />
     <orderEntry type="module" module-name="react-redux-firebase-hub" />
+    <orderEntry type="module" module-name="p3version3" />
+    <orderEntry type="module" module-name="quinielas-firebase-v2" />
   </component>
 </module>

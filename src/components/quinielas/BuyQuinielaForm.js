@@ -142,9 +142,9 @@ const BuyQuinielaForm = ({user, game}) => {
 
             let p = collection(db, 'quinielas')
             addDoc(p, {
-                username: user.displayName,
-                userId: user.uid,
-                fiveDigitId: nextJornada.id,
+                username: user.user.displayName,
+                userId: user.user.uid,
+                fiveDigitId: nextJornada.fiveDigitId,
                 correct: 0,
                 paid: false,
                 winner: false,
@@ -157,8 +157,8 @@ const BuyQuinielaForm = ({user, game}) => {
                 dispatch(setAlert('Quiniela agregada', 'success'))
                 let p = collection(db, 'quinielas')
                 let order = query(p, orderBy('timestamp', 'desc'),
-                    where("userId", "==", user.uid),
-                    where("fiveDigitId", "==", nextJornada.id),
+                    where("userId", "==", user.user.uid),
+                    where("fiveDigitId", "==", nextJornada.fiveDigitId),
                     where("paid", "==", false),)
 
                 getDocs(order).then(x=>{
