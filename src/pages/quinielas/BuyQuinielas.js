@@ -5,7 +5,7 @@ import {selectJornada, selectNextJornada} from "../../redux/jornadas/jornadasSli
 import BuyQuinielaForm from "../../components/quinielas/BuyQuinielaForm";
 import QuinielaComp from "../../components/quinielas/QuinielaComp";
 import GetFreeQuinielasComponent from "../../components/quinielas/BuyingQuinielasChecker";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
@@ -67,9 +67,12 @@ function BuyQuinielas() {
     let userCountryPrice = 0
     const currentJornada = useSelector(selectJornada)
     const navigate = useNavigate()
+    let location = useLocation()
 
     const dispatch = useDispatch()
     useEffect(() => {
+        ReactGA.initialize('G-9ZG76GPGQF')
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
         if(user.user&&nextJornada){
             if(user.userData.country==='México'){
                 userCountryPrice = 30

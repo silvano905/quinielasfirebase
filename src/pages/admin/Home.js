@@ -4,6 +4,7 @@ import Spinner from "../../components/spinner/Spinner";
 import PriceComp from "./CDU_Price";
 import PromotionComp from "./CDU_Promotion";
 import UpdateGamesScore from "./UpdateGamesScore";
+import CreateJornada from "./CreateJornada";
 import Grid from "@mui/material/Grid";
 import {useDispatch, useSelector} from "react-redux";
 import {styled} from "@mui/material/styles";
@@ -64,6 +65,10 @@ function HomeAdmin() {
 
                 <Grid item sm={11} lg={10} xs={11}>
                     <UpdateGamesScore/>
+                </Grid>
+
+                <Grid item sm={11} lg={10} xs={11}>
+                    <CreateJornada/>
                 </Grid>
 
             </Grid>

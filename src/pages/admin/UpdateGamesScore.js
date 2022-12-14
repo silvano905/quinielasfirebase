@@ -86,7 +86,7 @@ const UpdateGamesScore = () => {
 
         //get current jornada
         let nextJornadaRef = collection(db, 'jornadas')
-        let nextJornadaOrder = query(nextJornadaRef, orderBy('timestamp', 'desc'), limit(1), where("currentJornada", "==", true))
+        let nextJornadaOrder = query(nextJornadaRef, orderBy('timestamp', 'desc'), limit(1), where("activeJornada", "==", true))
         const querySnapshotNextJornada = getDocs(nextJornadaOrder).then(x=>{
             x.forEach((doc) => {
                 setCurrentJornada(doc.data())
@@ -265,7 +265,7 @@ const UpdateGamesScore = () => {
             //players are no longer going to be able to buy from the current jornada/only from the next jornada
             let jornadaRef = doc(db, 'jornadas', jornadaId);
             updateDoc(jornadaRef,{
-                currentJornada: !current
+                activeJornada: !current
             }).then().catch(e=>console.log(e))
             setDisableButton(false)
         }

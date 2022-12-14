@@ -100,20 +100,11 @@ const Navbar = () => {
                             </Link>
                         </Typography>
                     </MenuItem>
-                    {user.user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'&&
+                    {user.user.uid==='RO8bagM0g0SSnoLcdKWfmB91aM52'&&
                         <MenuItem onClick={handleMenuClose}>
                             <Typography variant="h6" gutterBottom>
-                                <Link to='/update' style={{color: 'blue', textDecoration: 'none'}}>
-                                    Update scores
-                                </Link>
-                            </Typography>
-                        </MenuItem>
-                    }
-                    {user.user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'&&
-                        <MenuItem onClick={handleMenuClose}>
-                            <Typography variant="h6" gutterBottom>
-                                <Link to='/create' style={{color: 'blue', textDecoration: 'none'}}>
-                                    create jornada
+                                <Link to='/admin' style={{color: 'blue', textDecoration: 'none'}}>
+                                    Admin
                                 </Link>
                             </Typography>
                         </MenuItem>

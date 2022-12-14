@@ -112,8 +112,8 @@ const CreateJornada = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        let fiveDigitNum = await Math.floor(1000 + Math.random() * 9000);
-        if(user.user.uid==='j9jYo6uxBFOaXDbqvKTLFOTd5z82'){
+        let fiveDigitNum = await Math.floor(1000 + Math.random() * 90000);
+        if(user.user.uid==='RO8bagM0g0SSnoLcdKWfmB91aM52'){
 
             list = [];
             for (const [key, value] of Object.entries(theArray)) {
@@ -144,14 +144,12 @@ const CreateJornada = () => {
             await addDoc(collection(db, "jornadas"), {
                 user: "admin",
                 activeJornada: false,
-                currentJornada: false,
-                nextJornada: true,
                 startDate: start,
                 endDate: end,
                 timestamp: serverTimestamp(),
                 prize: parseInt(prize),
                 openToBuy: true,
-                id: fiveDigitNum,
+                fiveDigitId: fiveDigitNum,
                 jornadaNumber: parseInt(num),
                 games: list,
                 gamesExtra: listExtra
@@ -194,6 +192,7 @@ const CreateJornada = () => {
                                                     <TextField
                                                         id="outlined-multiline-flexible"
                                                         multiline
+                                                        label="ex: Pumas vs Toluca"
                                                         maxRows={4}
                                                         name='text'
                                                         value={text}

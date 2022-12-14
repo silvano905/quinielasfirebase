@@ -16,6 +16,7 @@ import Winners from "../components/quinielas/Winners";
 import Spinner from "../components/spinner/Spinner";
 import Grid from "@mui/material/Grid";
 import {useDispatch, useSelector} from "react-redux";
+import {getPromotions} from "../redux/promotions/promotionsSlice";
 import {selectUser} from "../redux/user/userSlice";
 import {styled} from "@mui/material/styles";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -64,9 +65,9 @@ function Home() {
     useEffect(() => {
         ReactGA.initialize('G-9ZG76GPGQF')
         ReactGA.send({ hitType: "pageview", page: location.pathname })
-        //get current jornada
+        //get active jornada
         let p = collection(db, 'jornadas')
-        let order = query(p, orderBy('timestamp', 'desc'), limit(1), where("currentJornada", "==", true))
+        let order = query(p, orderBy('timestamp', 'desc'), limit(1), where("activeJornada", "==", true))
         const querySnapshot = getDocs(order).then(x=>{
             let fiveDigitIDJornada
             x.forEach((doc) => {
@@ -87,9 +88,9 @@ function Home() {
             })
         })
 
-        //get next jornada if their is one
+        //get jornada open to buy
         let nextJornadaRef = collection(db, 'jornadas')
-        let nextJornadaOrder = query(nextJornadaRef, orderBy('timestamp', 'desc'), limit(1), where("nextJornada", "==", true))
+        let nextJornadaOrder = query(nextJornadaRef, orderBy('timestamp', 'desc'), limit(1), where("openToBuy", "==", true))
         const querySnapshotNextJornada = getDocs(nextJornadaOrder).then(x=>{
             x.forEach((doc) => {
                 dispatch(getNextJornada({data: doc.data(), id: doc.id}))
@@ -114,6 +115,15 @@ function Home() {
         const priceObj = getDocs(priceQuery).then(x=>{
             x.forEach((doc) => {
                 dispatch(getPrice({data: doc.data(), id: doc.id}))
+            });
+        })
+
+        //get promotion
+        let promoRef = collection(db, 'promotions')
+        let promoQuery = query(promoRef, orderBy('timestamp', 'desc'), limit(1), where("active", "==", true))
+        const promoObj = getDocs(promoQuery).then(x=>{
+            x.forEach((doc) => {
+                dispatch(getPromotions({data: doc.data(), id: doc.id}))
             });
         })
 
