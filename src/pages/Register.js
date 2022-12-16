@@ -138,6 +138,7 @@ function Register() {
                                                 id="standard-basic2"
                                                 label="Número de teléfono"
                                                 name="phone"
+                                                type="number"
                                                 inputProps={{ maxLength: 20 }}
                                                 value={phone}
                                                 onChange={onChange}

@@ -333,9 +333,9 @@ const Results = () => {
                                 {/*    Jornada {currentJornada.jornadaNumber}*/}
                                 {/*</Typography>*/}
                                 <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                                    <Button variant={jornadaFiveDigitId===currentJornada.id?'contained':'outlined'} onClick={()=>setJornadaFiveDigitId(currentJornada.id)}>Jornada {currentJornada.jornadaNumber}</Button>
-                                    {nextJornada&&
-                                        <Button variant={jornadaFiveDigitId===nextJornada.id?'contained':'outlined'} onClick={()=>setJornadaFiveDigitId(nextJornada.id)}>Jornada {nextJornada.jornadaNumber}</Button>
+                                    <Button variant={jornadaFiveDigitId===currentJornada.fiveDigitId?'contained':'outlined'} onClick={()=>setJornadaFiveDigitId(currentJornada.fiveDigitId)}>Jornada {currentJornada.jornadaNumber}</Button>
+                                    {nextJornada&&nextJornada.fiveDigitId!==currentJornada.fiveDigitId&&
+                                        <Button variant={jornadaFiveDigitId===nextJornada.fiveDigitId?'contained':'outlined'} onClick={()=>setJornadaFiveDigitId(nextJornada.fiveDigitId)}>Jornada {nextJornada.jornadaNumber}</Button>
                                     }
                                 </ButtonGroup>
                             </Grid>

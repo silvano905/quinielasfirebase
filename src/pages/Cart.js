@@ -309,11 +309,13 @@ const Cart = () => {
                     </Item>
                 </Grid>
 
-                {myCart&&myCart.length>0&&user.userData.freeQuantity<myCart.length&&
-                    <Grid item sm={9} lg={10} xs={11}>
-                        <Paypal code={code}/>
-                    </Grid>
-                }
+                {/*TODO*/}
+                {/*activate later*/}
+                {/*{myCart&&myCart.length>0&&user.userData.freeQuantity<myCart.length&&*/}
+                {/*    <Grid item sm={9} lg={10} xs={11}>*/}
+                {/*        <Paypal code={code}/>*/}
+                {/*    </Grid>*/}
+                {/*}*/}
             </Grid>
         </Box>
     );

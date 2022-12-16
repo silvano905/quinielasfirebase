@@ -8,12 +8,11 @@
       <change beforePath="$PROJECT_DIR$/../quinielas-firebase-v2/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../quinielas-firebase-v2/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../quinielas-firebase-v2/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../quinielas-firebase-v2/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/navbar/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/navbar/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/CreateJornada.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/CreateJornada.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/UpdateGamesScore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/UpdateGamesScore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Results.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Results.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/quinielas/BuyQuinielas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/quinielas/BuyQuinielas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/quinielas/UsersQuinielas.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/quinielas/UsersQuinielas.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,7 @@
       <workItem from="1661278266485" duration="92070000" />
       <workItem from="1664904717411" duration="27962000" />
       <workItem from="1667610427763" duration="82600000" />
-      <workItem from="1669732460434" duration="97593000" />
+      <workItem from="1669732460434" duration="99186000" />
     </task>
     <servers />
   </component>

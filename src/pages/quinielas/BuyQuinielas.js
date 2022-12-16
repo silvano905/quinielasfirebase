@@ -234,7 +234,7 @@ function BuyQuinielas() {
                                             aria-controls="panel1a-content"
                                             id="panel1a-header"
                                         >
-                                            <Typography variant="h6" gutterBottom>Quinielas Gratis: {user.user&&user.userData.freeQuantity}</Typography>
+                                            <Typography variant="h6" gutterBottom>Quinielas Gratis: {user.user?user.userData.freeQuantity:0}</Typography>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             <Typography variant="h6" component="div" gutterBottom style={{textAlign: "start"}}>
