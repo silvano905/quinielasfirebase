@@ -330,7 +330,7 @@ const UpdateGamesScore = () => {
                 }).then().catch(e=>console.log(e))
                 if(allQuinielas[i].correct===9){
                     addDoc(collection(db, 'winners'),{
-                        date: serverTimestamp(),
+                        timestamp: serverTimestamp(),
                         jornada: jornada.jornadaNumber,
                         points: allQuinielas[i].correct,
                         quantity: `$${jornada.prize} USD`,

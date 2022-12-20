@@ -4,7 +4,6 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../firebase-twerkzity" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../p3version3" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../quinielas-firebase-v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../react-redux-firebase-hub" vcs="Git" />
   </component>
 </project>

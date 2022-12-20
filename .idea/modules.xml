@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/../firebase-twerkzity/.idea/firebase-twerkzity.iml" filepath="$PROJECT_DIR$/../firebase-twerkzity/.idea/firebase-twerkzity.iml" />
       <module fileurl="file://$PROJECT_DIR$/../p3version3/.idea/p3version3.iml" filepath="$PROJECT_DIR$/../p3version3/.idea/p3version3.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/quinielas-firebase.iml" filepath="$PROJECT_DIR$/.idea/quinielas-firebase.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../quinielas-firebase-v2/.idea/quinielas-firebase-v2.iml" filepath="$PROJECT_DIR$/../quinielas-firebase-v2/.idea/quinielas-firebase-v2.iml" />
       <module fileurl="file://$PROJECT_DIR$/../react-redux-firebase-hub/.idea/react-redux-firebase-hub.iml" filepath="$PROJECT_DIR$/../react-redux-firebase-hub/.idea/react-redux-firebase-hub.iml" />
     </modules>
   </component>

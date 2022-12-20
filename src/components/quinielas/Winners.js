@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import PaidIcon from '@mui/icons-material/Paid';
 import TextField from "@mui/material/TextField";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -82,7 +83,7 @@ const StyledTextThree = styled(Paper)(({ theme }) => ({
 
 const StyledTextWrong = styled(Typography)(({ theme }) => ({
     ...theme.typography.body2,
-    background:"linear-gradient(45deg, #3d52d5 8%, #090c9b 80%)",
+    background:"linear-gradient(45deg, #05668d 8%, #00a896 80%)",
     border: 0,
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(11, 82, 91, .5)',
@@ -103,17 +104,20 @@ const StyledTextCorrect = styled(Typography)(({ theme }) => ({
     textAlign: 'center'
 }));
 
-const StyledCard = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
-    background: 'linear-gradient(45deg, #80ed99 30%, #57cc99 90%)',
-    borderRadius: 3,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    background:"linear-gradient(45deg, #ffffff 8%, #fbfefb 80%)",
     boxShadow: '0 3px 5px 2px rgba(11, 82, 91, .5)',
-    margin:'10px auto 10px auto'
+    margin: ' 11px auto 2px auto',
+    width: 300
 }));
 
 const StyledTextFour = styled(Typography)(({ theme }) => ({
     ...theme.typography.body2,
-    background: 'black',
+    background:"linear-gradient(45deg, #14213d 8%, #03071e 80%)",
     border: 0,
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(11, 82, 91, .5)',
@@ -202,8 +206,31 @@ const Winners = ({winners}) => {
                         </Grid>
                         {list}
                     </Grid>
-                    <Button onClick={showMoreItems} style={{margin: '15px auto 5px auto', background: "black", color: "whitesmoke"}} variant="contained">mostrar más ganadores</Button>
+                    <Button onClick={showMoreItems} style={{margin: '15px auto 5px auto'}} variant="outlined">mostrar más ganadores</Button>
 
+                    <StyledCard>
+                        <Typography variant="h6" component="body1" gutterBottom>
+                            Usuarios Registrados
+                        </Typography>
+                        <div>
+                            <Typography variant="h6" component="body1" gutterBottom style={{color: '#ffc300', fontFamily: 'Cinzel, serif'}}>
+                                <AccountCircleIcon style={{marginBottom: -5, color: "blue"}}/> 81,032
+                            </Typography>
+                        </div>
+
+                    </StyledCard>
+
+                    <StyledCard>
+                        <Typography variant="h6" component="body1" gutterBottom>
+                            Dinero ganado por jugadores
+                        </Typography>
+                        <div>
+                            <Typography variant="h6" component="body1" gutterBottom style={{color: '#49b446', fontFamily: 'Cinzel, serif'}}>
+                                <PaidIcon style={{marginBottom: -5, color: "blue"}}/> + 81,032 Dólares
+                            </Typography>
+                        </div>
+
+                    </StyledCard>
                 </Item>
             </Box>
         </>

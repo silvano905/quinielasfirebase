@@ -100,7 +100,7 @@ function Home() {
 
         //get winners list
         let winnersRef = collection(db, 'winners')
-        let winnersQuery = query(winnersRef, orderBy('date', 'desc'))
+        let winnersQuery = query(winnersRef, orderBy('timestamp', 'desc'))
         let winnersSnap = getDocs(winnersQuery).then(x=>{
             dispatch(
                 getWinners(
