@@ -161,7 +161,7 @@ const Results = () => {
                             <Grid item sm={4} lg={4} xs={4}>
                                 {item.winner?
                                     <span style={{color: 'greenyellow'}}>Ganaste</span>
-                                    :currentJornada.active?
+                                    :currentJornada.activeJornada?
                                         <span style={{color: 'coral'}}>Jornada sin terminar</span>
                                         :
                                         currentJornada.jornadaNumber!==item.jornadaNumber?
@@ -266,11 +266,11 @@ const Results = () => {
                                 Anuncio importante
                             </Typography>
                             <Typography component="div" variant="h5" color="text.primary" style={{textAlign: "start", margin: 12}}>
-                                uno de nuestros representantes se comunicará con usted si gana por número de teléfono.
+                                Uno de nuestros representantes se comunicará con usted si gana por número de teléfono.
                             </Typography>
                             <Divider variant="middle" />
                             <Typography component="div" variant="h5" color="text.primary" style={{textAlign: "start", margin: 12}}>
-                                si no podemos comunicarnos con usted por teléfono, le enviaremos un mensaje de
+                                Si no podemos comunicarnos con usted por teléfono, le enviaremos un mensaje de
                                 texto y un correo electrónico.
                             </Typography>
                         </div>
@@ -340,10 +340,10 @@ const Results = () => {
                                 </ButtonGroup>
                             </Grid>
                             <Grid item sm={10} lg={10} xs={10}>
-                                {user?
+                                {user.user?
                                     <>
                                         <Typography variant="h5" component="div" gutterBottom style={{color: '#004e98'}}>
-                                            {user.displayName}
+                                            {user.user.displayName}
                                         </Typography>
                                     </>
                                     :
@@ -402,7 +402,7 @@ const Results = () => {
                         <Typography component="div" variant="h6" style={{color: "blue"}}>
                             Jornada {currentJornada.jornadaNumber}
                         </Typography>
-                        {currentJornada.active?
+                        {currentJornada.activeJornada?
                             <Typography component="div" variant="h6" style={{color: 'blue'}}>
                                 Esperando resultados de la jornada {currentJornada.jornadaNumber}
                             </Typography>

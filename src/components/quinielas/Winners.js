@@ -109,7 +109,7 @@ const StyledCard = styled(Paper)(({ theme }) => ({
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    background:"linear-gradient(45deg, #ffffff 8%, #fbfefb 80%)",
+    background:"linear-gradient(45deg, #05668d 8%, #00a896 80%)",
     margin: ' 11px auto 2px auto',
     width: 300
 }));
@@ -208,7 +208,7 @@ const Winners = ({winners}) => {
                     <Button onClick={showMoreItems} style={{margin: '15px auto 5px auto'}} variant="outlined">mostrar más ganadores</Button>
 
                     <StyledCard>
-                        <Typography variant="h6" component="body1" gutterBottom style={{color: "blue"}}>
+                        <Typography variant="h6" component="body1" gutterBottom style={{color: "white"}}>
                             Usuarios Registrados
                         </Typography>
                         <div>
@@ -220,12 +220,16 @@ const Winners = ({winners}) => {
                     </StyledCard>
 
                     <StyledCard>
-                        <Typography variant="h6" component="body1" gutterBottom style={{color: "blue"}}>
+                        <Typography variant="h6" component="body1" gutterBottom style={{color: "white"}}>
                             Dinero ganado por jugadores
                         </Typography>
                         <div>
                             <Typography variant="h6" component="body1" gutterBottom>
                                 <PaidIcon style={{marginBottom: -5}}/> +35,000 Dólares
+                            </Typography>
+                            <hr/>
+                            <Typography variant="h6" component="body1" gutterBottom>
+                                En el año 2022 le hemos dado a los jugadores más de 35 mil dólares en ganancias.
                             </Typography>
                         </div>
 
