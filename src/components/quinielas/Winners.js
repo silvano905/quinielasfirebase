@@ -110,7 +110,6 @@ const StyledCard = styled(Paper)(({ theme }) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
     background:"linear-gradient(45deg, #ffffff 8%, #fbfefb 80%)",
-    boxShadow: '0 3px 5px 2px rgba(11, 82, 91, .5)',
     margin: ' 11px auto 2px auto',
     width: 300
 }));
@@ -171,7 +170,7 @@ const Winners = ({winners}) => {
         <>
             <Box sx={{ flexGrow: 1 }}>
                 <Item elevation={6}>
-                    <Typography variant="h5" component="div" gutterBottom style={{color: '#ffc300', fontFamily: 'Cinzel, serif', marginTop: 10}}>
+                    <Typography variant="h4" component="div" gutterBottom style={{color: '#00367e', fontFamily: 'Cinzel, serif', marginTop: 10}}>
                         Historial de Ganadores
                     </Typography>
                     <div style={{margin: '5px auto 2px auto'}}>
@@ -213,7 +212,7 @@ const Winners = ({winners}) => {
                             Usuarios Registrados
                         </Typography>
                         <div>
-                            <Typography variant="h6" component="body1" gutterBottom style={{color: '#ffc300', fontFamily: 'Cinzel, serif'}}>
+                            <Typography variant="h6" component="body1" gutterBottom>
                                 <AccountCircleIcon style={{marginBottom: -5, color: "blue"}}/> 81,032
                             </Typography>
                         </div>
@@ -225,8 +224,8 @@ const Winners = ({winners}) => {
                             Dinero ganado por jugadores
                         </Typography>
                         <div>
-                            <Typography variant="h6" component="body1" gutterBottom style={{color: '#49b446', fontFamily: 'Cinzel, serif'}}>
-                                <PaidIcon style={{marginBottom: -5, color: "blue"}}/> + 81,032 Dólares
+                            <Typography variant="h6" component="body1" gutterBottom>
+                                <PaidIcon style={{marginBottom: -5, color: "blue"}}/> +35,000 Dólares
                             </Typography>
                         </div>
 
