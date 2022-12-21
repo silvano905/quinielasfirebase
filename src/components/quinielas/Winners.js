@@ -170,7 +170,7 @@ const Winners = ({winners}) => {
         <>
             <Box sx={{ flexGrow: 1 }}>
                 <Item elevation={6}>
-                    <Typography variant="h4" component="div" gutterBottom style={{color: '#00367e', fontFamily: 'Cinzel, serif', marginTop: 10}}>
+                    <Typography variant="h4" component="div" gutterBottom style={{color: '#00367e', fontFamily: 'Cinzel, serif', marginTop: 10, fontSize: 29}}>
                         Historial de Ganadores
                     </Typography>
                     <div style={{margin: '5px auto 2px auto'}}>
@@ -208,24 +208,24 @@ const Winners = ({winners}) => {
                     <Button onClick={showMoreItems} style={{margin: '15px auto 5px auto'}} variant="outlined">mostrar más ganadores</Button>
 
                     <StyledCard>
-                        <Typography variant="h6" component="body1" gutterBottom>
+                        <Typography variant="h6" component="body1" gutterBottom style={{color: "blue"}}>
                             Usuarios Registrados
                         </Typography>
                         <div>
                             <Typography variant="h6" component="body1" gutterBottom>
-                                <AccountCircleIcon style={{marginBottom: -5, color: "blue"}}/> 81,032
+                                <AccountCircleIcon style={{marginBottom: -5}}/> 81,032
                             </Typography>
                         </div>
 
                     </StyledCard>
 
                     <StyledCard>
-                        <Typography variant="h6" component="body1" gutterBottom>
+                        <Typography variant="h6" component="body1" gutterBottom style={{color: "blue"}}>
                             Dinero ganado por jugadores
                         </Typography>
                         <div>
                             <Typography variant="h6" component="body1" gutterBottom>
-                                <PaidIcon style={{marginBottom: -5, color: "blue"}}/> +35,000 Dólares
+                                <PaidIcon style={{marginBottom: -5}}/> +35,000 Dólares
                             </Typography>
                         </div>
 
