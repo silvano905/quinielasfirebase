@@ -152,8 +152,8 @@ function Home() {
                     <Item elevation={6}>
                         <Grid container spacing={1} justifyContent="center">
                             <Grid item sm={10} lg={10} xs={10}>
-                                <Typography variant="h5" component="div" gutterBottom style={{color: '#ffc300', fontFamily: 'Cinzel, serif'}}>
-                                    Liga Mx Quiniela 2022
+                                <Typography variant="h5" component="div" gutterBottom style={{color: '#00367e', fontFamily: 'Cinzel, serif', fontSize: 29}}>
+                                    Quiniela Liga MX
                                 </Typography>
                                 <Divider>
                                     <SportsSoccerIcon/>
