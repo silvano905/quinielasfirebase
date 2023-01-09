@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import { useSelector,useDispatch } from 'react-redux';
-import {Link, Redirect} from "react-router-dom";
+import {Link, Redirect, useLocation} from "react-router-dom";
 import QuinielaComp from "../components/quinielas/QuinielaComp";
 
 import GetFreeQuinielasComponent from "../components/quinielas/BuyingQuinielasChecker";
@@ -37,6 +37,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import {selectPrice} from "../redux/price/priceSlice";
+import ReactGA from "react-ga4";
 
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -98,8 +99,11 @@ const Cart = () => {
     const nextJornada = useSelector(selectNextJornada)
     const user = useSelector(selectUser)
     const myCart = useSelector(selectCart)
+    let location = useLocation()
 
     useEffect(() => {
+        ReactGA.initialize('G-9ZG76GPGQF')
+        ReactGA.send({ hitType: "pageview", page: location.pathname })
         if(user.user){
             let p = collection(db, 'quinielas')
             let order = query(p, orderBy('timestamp', 'desc'),

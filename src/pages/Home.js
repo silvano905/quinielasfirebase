@@ -38,6 +38,9 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ReactGA from "react-ga4";
+import MilitaryTechIcon from "@mui/icons-material/MilitaryTech";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import PaidIcon from "@mui/icons-material/Paid";
 const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -304,6 +307,24 @@ function Home() {
                         <Winners winners={winners}/>
                     </Grid>
                 }
+
+                <Grid item sm={11} lg={10} xs={11}>
+                    <Item elevation={6}>
+                        <Typography variant="h4" component="div" gutterBottom style={{color: '#00367e', fontFamily: 'Cinzel, serif', marginTop: 10, fontSize: 29}}>
+                            Nuestra Historia
+                        </Typography>
+                        <div style={{margin: '5px auto 2px auto'}}>
+                            <MilitaryTechIcon/>
+                        </div>
+                        <Typography variant="h6" gutterBottom>
+                            Quinielasligamx.com es el principal destino para los fanáticos del futbol mexicano que desean jugar quinielas por internet.
+                            En 2018, Quinielasligamx.com reinventó el concepto de las quinielas,
+                            brindando a los fanáticos la posibilidad de jugar quinielas por premios reales en efectivo. Y a pesar de muchos imitadores,
+                            todavía no hay mejor lugar para jugar. Después de su lanzamiento en 2018,
+                            Quinielasligamx.com no tardó mucho en convertirse en la opción número 1 para jugar quinielas en Estados Unidos y Mexico.
+                        </Typography>
+                    </Item>
+                </Grid>
 
 
                 <Grid item xs={12} sm={12} lg={7}>

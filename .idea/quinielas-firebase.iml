@@ -12,5 +12,7 @@
     <orderEntry type="module" module-name="firebase-twerkzity" />
     <orderEntry type="module" module-name="react-redux-firebase-hub" />
     <orderEntry type="module" module-name="p3version3" />
+    <orderEntry type="module" module-name="bjclive" />
+    <orderEntry type="module" module-name="consejos" />
   </component>
 </module>
