@@ -16,6 +16,7 @@ import UserQuinielas from "./pages/quinielas/UsersQuinielas";
 import QuinielasById from "./pages/quinielas/QuinielasById";
 import {useSelector} from "react-redux";
 import {selectUser} from "./redux/user/userSlice";
+import RandomQuiniela from "./pages/admin/RandomQuiniela";
 import Cart from "./pages/Cart";
 function App() {
   const userAuth = useSelector(selectUser)
@@ -50,6 +51,7 @@ function App() {
             </Route>
               <Route path='/myQuinielas' element={<UserQuinielas />} />
               <Route path='/buy' element={<BuyQuinielas />} />
+              {/*<Route path='/sv' element={<RandomQuiniela />} />*/}
               <Route path='/byId/:id' element={<QuinielasById />} />
               <Route path='/results' element={<Results />} />
             <Route path='/' element={<Home />} />

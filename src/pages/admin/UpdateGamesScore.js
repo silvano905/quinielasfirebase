@@ -132,7 +132,7 @@ const UpdateGamesScore = () => {
 
     const [formData, setFormData] = useState(games);
     const [open, setOpen] = useState(jornada.openToBuy);
-    const [current, setCurrent] = useState(jornada.currentJornada);
+    const [current, setCurrent] = useState(jornada.activeJornada);
     const [disableButton, setDisableButton] = useState(false)
 
     const onChangeHome = e => setFormData({...formData, [e.target.name]: {...formData[e.target.name], home: e.target.value}})
@@ -242,12 +242,20 @@ const UpdateGamesScore = () => {
                         games[key].awayResult = listForm[keyF].canceled?'':listForm[keyF].away
                         games[key].gamePlayed = !listForm[keyF].canceled
                         games[key].canceled = listForm[keyF].canceled
-                    }else {
+                    }
+                    if(listForm[keyF].canceled){
                         games[key].homeResult = ''
                         games[key].awayResult = ''
                         games[key].gamePlayed = false
                         games[key].canceled = true
                     }
+                    if(listForm[keyF].home === ''&&!listForm[keyF].canceled){
+                        games[key].homeResult = ''
+                        games[key].awayResult = ''
+                        games[key].gamePlayed = false
+                        games[key].canceled = false
+                    }
+
 
                 }
             }
