@@ -9,8 +9,7 @@
       <change beforePath="$PROJECT_DIR$/../p3version3/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../p3version3/src/pages/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/UpdateGamesScore.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/UpdateGamesScore.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/jornadas/jornadasSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/jornadas/jornadasSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/admin/RandomQuiniela.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/RandomQuiniela.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,7 @@
       <workItem from="1667610427763" duration="82600000" />
       <workItem from="1669732460434" duration="176291000" />
       <workItem from="1672795097906" duration="141000" />
-      <workItem from="1672795309131" duration="128737000" />
+      <workItem from="1672795309131" duration="130826000" />
     </task>
     <servers />
   </component>

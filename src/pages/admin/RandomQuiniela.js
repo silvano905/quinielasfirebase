@@ -72,25 +72,25 @@ const RandomQuiniela = ({user, game}) => {
     const navigate = useNavigate()
     const batch = writeBatch(db);
     const dispatch = useDispatch()
-    const nextJornada = useSelector(selectNextJornada)
+    const currentJornada = useSelector(selectJornada)
     useEffect(() => {
     }, []);
 
     let games
-    if(nextJornada){
+    if(currentJornada){
         games = {}
-        for (let i = 0; i < nextJornada.games.length; i++) {
-            let name = nextJornada.games[i].gameName
+        for (let i = 0; i < currentJornada.games.length; i++) {
+            let name = currentJornada.games[i].gameName
             games[name] = ''
         }
     }
 
     //for extra games
     let gamesExtra
-    if(nextJornada){
+    if(currentJornada){
         gamesExtra = {}
-        for (let i = 0; i < nextJornada.gamesExtra.length; i++) {
-            let name = nextJornada.gamesExtra[i].gameName
+        for (let i = 0; i < currentJornada.gamesExtra.length; i++) {
+            let name = currentJornada.gamesExtra[i].gameName
             gamesExtra[name] = ''
         }
     }
@@ -114,7 +114,7 @@ const RandomQuiniela = ({user, game}) => {
         for (let i = 0; i < 100; i++) {
             let gamesToAdd = [];
             for (const [key, value] of Object.entries(formData)) {
-                let yy = Math.floor(Math.random() * 2)
+                let yy = Math.floor(Math.random() * 3)
                 gamesToAdd.push(
                     {
                         gameName: key,
@@ -130,7 +130,7 @@ const RandomQuiniela = ({user, game}) => {
 
             let gamesToAddExtra = [];
             for (const [key, value] of Object.entries(formDataExtra)) {
-                let yy = Math.floor(Math.random() * 2)
+                let yy = Math.floor(Math.random() * 3)
                 gamesToAddExtra.push(
                     {
                         gameName: key,
@@ -149,27 +149,17 @@ const RandomQuiniela = ({user, game}) => {
             batch.set(p, {
                 username: names[namesIndex],
                 userId: uuidv4(),
-                fiveDigitId: nextJornada.fiveDigitId,
+                fiveDigitId: currentJornada.fiveDigitId,
                 correct: 0,
                 paid: true,
                 winner: false,
-                jornadaNumber: nextJornada.jornadaNumber,
+                jornadaNumber: currentJornada.jornadaNumber,
                 games: gamesToAdd,
                 gamesExtra: gamesToAddExtra,
                 timestamp: serverTimestamp()
 
             })
-            for (let i = 0; i < nextJornada.games.length; i++) {
-                let name = nextJornada.games[i].gameName
-                games[name] = ''
-            }
-            setFormData(games)
 
-            for (let i = 0; i < nextJornada.gamesExtra.length; i++) {
-                let name = nextJornada.gamesExtra[i].gameName
-                gamesExtra[name] = ''
-            }
-            setFormDataExtra(gamesExtra)
         }
         await batch.commit()
 
