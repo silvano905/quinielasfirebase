@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0060113-2e67-4e85-ae3d-e38d221f3c3c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../consejos/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../consejos/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consejos/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../consejos/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consejos/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../consejos/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consejos/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../consejos/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../p3version3/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../p3version3/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/quinielas-firebase.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/quinielas-firebase.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/admin/RandomQuiniela.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/admin/RandomQuiniela.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config-firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config-firebase/firebase.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +100,8 @@
       <workItem from="1667610427763" duration="82600000" />
       <workItem from="1669732460434" duration="176291000" />
       <workItem from="1672795097906" duration="141000" />
-      <workItem from="1672795309131" duration="130826000" />
+      <workItem from="1672795309131" duration="137697000" />
+      <workItem from="1674690838284" duration="670000" />
     </task>
     <servers />
   </component>

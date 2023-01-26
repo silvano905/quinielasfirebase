@@ -1,7 +1,19 @@
 import React, {useState, Fragment, useEffect} from 'react';
 import {auth, db} from '../config-firebase/firebase'
 import { createUserWithEmailAndPassword, updateProfile,  } from 'firebase/auth'
-import {addDoc, collection, onSnapshot, orderBy, query, doc, setDoc, serverTimestamp, getDoc} from "firebase/firestore";
+import {
+    addDoc,
+    collection,
+    onSnapshot,
+    orderBy,
+    query,
+    doc,
+    setDoc,
+    getDocs,
+    serverTimestamp,
+    getDoc,
+    where
+} from "firebase/firestore";
 import {useDispatch, useSelector} from "react-redux";
 import {login, selectUser, getUserData} from "../redux/user/userSlice";
 import {Link, Navigate} from "react-router-dom";
@@ -42,8 +54,22 @@ function Register() {
         country: ''
     });
 
-    const onChange = (e) =>
+    //check if username is available
+    const[usernameAvailable, setUsernameAvailable] = useState(true)
+    async function checkUsername(username) {
+        const citiesRef = collection(db, 'usersData');
+        let tt = query(citiesRef, orderBy('timestamp', 'desc'), where("username", "==", username))
+        const snapshot = await getDocs(tt)
+        if (!snapshot.empty) {
+            setUsernameAvailable(false)
+        }else {
+            setUsernameAvailable(true)
+        }
+    }
+    const onChange = (e) =>{
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        checkUsername(e.target.value)
+    }
 
     //password
     const [values, setValues] = React.useState({
@@ -62,6 +88,7 @@ function Register() {
             .then(cred => {
                 let userDataRef = doc(db, "usersData", cred.user.uid);
                 setDoc(userDataRef,{
+                    username: name,
                     phoneNumber: phone,
                     country: country,
                     freeQuantity: 0,
@@ -116,6 +143,7 @@ function Register() {
                                     <Grid item sm={11} lg={7} xs={11}>
                                         <FormControl>
                                             <TextField
+                                                error={!usernameAvailable?true:false}
                                                 fullWidth
                                                 variant="outlined"
                                                 id="standard-basic"
@@ -126,6 +154,7 @@ function Register() {
                                                 onChange={onChange}
                                                 required
                                                 style={{marginTop: 10}}
+                                                helperText={!usernameAvailable?"nombre de usuario no disponible":null}
                                             />
                                         </FormControl>
                                     </Grid>
@@ -203,7 +232,7 @@ function Register() {
                                         {disableButton?
                                             <Button style={{margin: 10}} type="submit" variant="contained" color="primary" disabled>Registrarme</Button>
                                             :
-                                            <Button style={{margin: 10}} type="submit" variant="contained" color="primary">Registrarme</Button>
+                                            <Button style={{margin: 10}} type="submit" variant="contained" color="primary" disabled={!usernameAvailable}>Registrarme</Button>
                                         }
                                     </Grid>
 
