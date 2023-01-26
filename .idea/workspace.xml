@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f0060113-2e67-4e85-ae3d-e38d221f3c3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../p3version3/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../p3version3/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/quinielas-firebase.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/quinielas-firebase.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config-firebase/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config-firebase/firebase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +42,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../boxing-firebase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bjclive" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -101,7 +96,8 @@
       <workItem from="1669732460434" duration="176291000" />
       <workItem from="1672795097906" duration="141000" />
       <workItem from="1672795309131" duration="137697000" />
-      <workItem from="1674690838284" duration="670000" />
+      <workItem from="1674690838284" duration="1323000" />
+      <workItem from="1674692210091" duration="312000" />
     </task>
     <servers />
   </component>

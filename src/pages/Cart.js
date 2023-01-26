@@ -104,7 +104,7 @@ const Cart = () => {
     useEffect(() => {
         ReactGA.initialize('G-9ZG76GPGQF')
         ReactGA.send({ hitType: "pageview", page: location.pathname })
-        if(user.user){
+        if(user.user&&nextJornada){
             let p = collection(db, 'quinielas')
             let order = query(p, orderBy('timestamp', 'desc'),
                 where("userId", "==", user.user.uid),
@@ -161,7 +161,7 @@ const Cart = () => {
     //this function is to set the price for the Quinileas based on the users country
     function SetQuinilasPrice() {
         let price = ''
-        if(user.user){
+        if(user.user&&myCart){
             if(user.userData.freeQuantity>=myCart.length&&myCart.length>0){
                 if(user.userData.country==='México'){
                     price = '$0 Pesos'
