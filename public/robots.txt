@@ -1,16 +1,5 @@
 User-agent: *
-Disallow: /about
-Disallow: /login
-Disallow: /register
-Disallow: /account
-Disallow: /cart
-Disallow: /update
-Disallow: /create
-Disallow: /myQuinielas
-Disallow: /buy
-Disallow: /byId
-Disallow: /results
-Disallow: /winners
-Allow: /
+Disallow: /
+Allow: /$
 
 Sitemap: https://www.quinielasligamx.com/sitemap.xml

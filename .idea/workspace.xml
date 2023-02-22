@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0060113-2e67-4e85-ae3d-e38d221f3c3c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../p3version3/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../p3version3/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../firebase-twerkzity/src/pages/Clips.js" beforeDir="false" afterPath="$PROJECT_DIR$/../firebase-twerkzity/src/pages/Clips.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../p3version3/firebase-debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../p3version3/functions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../p3version3/functions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +21,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../firebase-twerkzity" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -42,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bjclive" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../p3version3/functions/callableFunctions" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -53,13 +55,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alexa\WebstormProjects\p3version3\functions\callableFunctions" />
       <recent name="C:\Users\alexa\WebstormProjects\bjclive\src\pages" />
       <recent name="C:\Users\alexa\WebstormProjects\bjclive\src\components" />
       <recent name="C:\Users\alexa\WebstormProjects\bjclive\src\redux" />
       <recent name="C:\Users\alexa\WebstormProjects\bjclive\src" />
-      <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src\pages\admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alexa\WebstormProjects\p3version3\src\redux" />
       <recent name="C:\Users\alexa\WebstormProjects\bjclive\src\components\mapsAutocomplete" />
       <recent name="C:\Users\alexa\WebstormProjects\p3version3\src" />
       <recent name="C:\Users\alexa\WebstormProjects\quinielas-firebase\src\redux" />
@@ -97,7 +100,10 @@
       <workItem from="1672795097906" duration="141000" />
       <workItem from="1672795309131" duration="137697000" />
       <workItem from="1674690838284" duration="1323000" />
-      <workItem from="1674692210091" duration="312000" />
+      <workItem from="1674692210091" duration="103400000" />
+      <workItem from="1675879139844" duration="18017000" />
+      <workItem from="1675997187656" duration="725000" />
+      <workItem from="1676149429164" duration="69685000" />
     </task>
     <servers />
   </component>
